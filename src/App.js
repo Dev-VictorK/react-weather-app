@@ -20,7 +20,7 @@ function App() {
     <div className="App m-4">
       Weather App
       <InputForm temperatures={temperatures} setTemperatures={setTemperatures}/>
-      <WidgetPanel/>
+      <WidgetPanel temperatures={temperatures}/>
     </div>
   );
 }
