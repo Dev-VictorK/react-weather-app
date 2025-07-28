@@ -13,13 +13,15 @@ function InputForm(props) {
                 setGeocode([
                     location.results[0].longitude, 
                     location.results[0].latitude, 
-                    location.results[0].country])
+                    location.results[0].country_code,
+                    location.results[0].name
+                ])
             })
             .catch(console.error);
     }
 
     useEffect(() => {
-        const [longitude, latitude, country] = geocode;
+        const [longitude, latitude, country_code, name] = geocode;
         if (geocode.length > 0) {
             fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&forecast_days=1&hourly=temperature_2m&temperature_unit=celsius`)
                 .then(response => response.json())
@@ -27,7 +29,10 @@ function InputForm(props) {
                     console.log(data);
                     props.setTemperatures([
                         ...props.temperatures, 
-                        {country: country, temperatures: [data.hourly.temperature_2m]}
+                        {
+                            city: name,
+                            country_code: country_code, 
+                            temperatures: [data.hourly.temperature_2m]}
                     ])
                 })
                 .catch(console.error);
