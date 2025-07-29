@@ -4,9 +4,10 @@ import { useRef, useState, useEffect } from 'react';
 function Widget(props) {
     const sliderRef = useRef(null);
     const [currentIndex, setCurrentIndex] = useState(0);
+    console.log(props.temperature);
 
     const temperatureArr = props.temperature[0].map((temp, index) => {
-        return <Temperature key={index} temperature={temp} />
+        return <Temperature key={index} time={index} temperature={temp} />
     });
 
     const slide = (direction) => {
