@@ -2,12 +2,12 @@ import Temperature from "./Temperature";
 import { useRef, useState, useEffect } from 'react';
 
 function Widget(props) {
-    const temperatureArr = props.temperature.map((temp, index) => {
-        return <Temperature key={index} temperature={temp} />
-    });
-
     const sliderRef = useRef(null);
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    const temperatureArr = props.temperature[0].map((temp, index) => {
+        return <Temperature key={index} temperature={temp} />
+    });
 
     const slide = (direction) => {
         const slider = sliderRef.current;
@@ -32,14 +32,14 @@ function Widget(props) {
 
     return (
         <div className="border border-black rounded bg-blue-500 p-2 text-white">
-            <div class="overflow-hidden relative w-full">
-                <div ref={sliderRef} class="flex transition-transform duration-500 ease-in-out">
+            <div className="overflow-hidden relative w-full">
+                <div ref={sliderRef} className="flex transition-transform duration-500 ease-in-out">
                     {temperatureArr}
                 </div>
             </div>
-            <div class="flex gap-4 mt-4">
-                <button onclick={() => slide(-1)} class="px-4 py-2 bg-gray-300">Prev</button>
-                <button onclick={() => slide(1)} class="px-4 py-2 bg-gray-300">Next</button>
+            <div className="flex gap-4 mt-4">
+                <button onClick={() => slide(-1)} className="px-4 py-2 bg-slate-800">Prev</button>
+                <button onClick={() => slide(1)} className="px-4 py-2 bg-slate-800">Next</button>
             </div>
             <h3>Location: {props.city}, {props.country}</h3>
             <h3>Icon</h3>
