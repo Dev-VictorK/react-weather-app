@@ -12,7 +12,7 @@ function Temperature(props){
     })(props.temperature);
 
     return(
-        <div className="min-w-fit flex-shrink-0 bg-red-700 p-3">{props.time} {props.temperature} {temperatureScale}</div>
+        <div className="flex-shrink-0  w-24 bg-red-700 m-1 p-3 snap-start">{props.time} {props.temperature} {temperatureScale}</div>
     )
 }
 export default Temperature;
