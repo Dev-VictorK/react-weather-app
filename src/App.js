@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App m-4">
-      Weather App
+      Weather Temperature App
       <InputForm temperatures={temperatures} setTemperatures={setTemperatures}/>
       <WidgetPanel temperatures={temperatures}/>
     </div>

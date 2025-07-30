@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 function InputForm(props) {
     const [geocode, setGeocode] = useState([]);
+    const API_KEY = "ffGkmWQkRDMw4SQHS0miF4OXIiTMoukz";
 
     const fetchCityLocation = (e) => {
         e.preventDefault();
@@ -23,7 +24,7 @@ function InputForm(props) {
     useEffect(() => {
         const [longitude, latitude, country_code, name] = geocode;
         if (geocode.length > 0) {
-            fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&forecast_days=1&hourly=temperature_2m&temperature_unit=celsius`)
+            fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&forecast_days=1&hourly=apparent_temperature&temperature_unit=celsius`)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data);
@@ -32,7 +33,7 @@ function InputForm(props) {
                         {
                             city: name,
                             country_code: country_code, 
-                            temperatures: [data.hourly.temperature_2m]}
+                            temperatures: [data.hourly.apparent_temperature]}
                     ])
                 })
                 .catch(console.error);

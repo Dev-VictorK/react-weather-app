@@ -14,7 +14,6 @@ function Widget(props) {
                 </div>
             </div>
             <h3>Location: {props.city}, {props.country}</h3>
-            <h3>Icon</h3>
         </div>
     )
 }
