@@ -4,7 +4,16 @@ module.exports = {
     "./src/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        blackNight: "#212529",
+        lightDay: "#FCFCFC",
+      },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        rubik: ['Rubik', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
