@@ -5,6 +5,7 @@ import WidgetPanel from './WidgetPanel';
 import SunIcon from './sunIcon';
 import CloudIcon from './cloudIcon';
 import NightIcon from './nightIcon';
+import ToggleSwitch from './ToggleSwitch';
 {/**Weather App
 
 Fetch weather from an API like OpenWeatherMap.
@@ -33,11 +34,11 @@ function App() {
           <h1 className='text-black dark:text-white text-[32px] font-rubik font-semibold'>Weather app</h1>
         </div>
 
-        <div className='flex items-center'>
+        <div className='flex items-center gap-x-3'>
           <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="30px" height="30px">
             <SunIcon />
           </svg>
-
+          <ToggleSwitch />
           <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
             fill="currentColor"
             viewBox="0 0 100 100"

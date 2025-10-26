@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         blackNight: "#212529",
         lightDay: "#FCFCFC",
+        cardDark: "#343A40",
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
