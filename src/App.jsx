@@ -4,6 +4,7 @@ import InputForm from './InputForm';
 import WidgetPanel from './WidgetPanel';
 import SunIcon from './sunIcon';
 import CloudIcon from './cloudIcon';
+import NightIcon from './nightIcon';
 {/**Weather App
 
 Fetch weather from an API like OpenWeatherMap.
@@ -27,14 +28,21 @@ function App() {
             fill="currentColor"
             viewBox="0 0 100 100"
             className='w-[60px] h-[80px] dark:text-white text-black'>
-            <CloudIcon/>
+            <CloudIcon />
           </svg>
           <h1 className='text-black dark:text-white text-[32px] font-rubik font-semibold'>Weather app</h1>
         </div>
 
         <div className='flex items-center'>
           <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="30px" height="30px">
-          <SunIcon/>
+            <SunIcon />
+          </svg>
+
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+            fill="currentColor"
+            viewBox="0 0 100 100"
+            className='w-[30px] h-[30px] dark:text-white text-black'>
+            <NightIcon />
           </svg>
         </div>
       </div>
