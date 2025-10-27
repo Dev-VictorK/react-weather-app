@@ -8,8 +8,8 @@ function WidgetPanel(props) {
     });
 
     return (
-        <div className="border border-black rounded p-2">
-            {widgets}
+        <div className="flex justify-center w-full p-2">
+            <Widget/>
         </div>
     )
 }

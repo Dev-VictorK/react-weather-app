@@ -23,7 +23,7 @@ function Temperature(props) {
 
     return (
         <div
-            className="flex-shrink-0 flex flex-col w-24 bg-gray-700 m-1 p-3 snap-start rounded-md">
+            className="flex-shrink-0 flex flex-col w-24 bg-cardDark m-1 p-2 h-50 snap-start rounded-md">
             <div>{props.time}:00 HRS</div>
             <div>{props.temperature} °C</div>
             <div>{temperatureScale}</div>
