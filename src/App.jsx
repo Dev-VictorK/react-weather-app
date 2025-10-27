@@ -36,13 +36,15 @@ function App() {
           <h1 className='text-black dark:text-white text-[32px] font-rubik font-semibold'>Weather app</h1>
         </div>
 
-        <div className='flex items-center gap-x-3'>
-          <InputForm showSearch={showSearch} temperatures={temperatures} setTemperatures={setTemperatures} />
-          <button
-            onClick={() => setShowSearch(!showSearch)}>
-            <FaSearch className={`text-black dark:text-white  text-[15px] ${showSearch ? "hidden":"block"}`} />
-            <FaTimes className={`text-black dark:text-white  text-[15px] ${showSearch ? "block":"hidden"}`} />
-          </button>
+        <div className='flex items-center gap-x-2'>
+          <div className='flex flex-row gap-x-1'>
+            <InputForm showSearch={showSearch} temperatures={temperatures} setTemperatures={setTemperatures} />
+            <button
+              onClick={() => setShowSearch(!showSearch)}>
+              <FaSearch className={`text-black dark:text-white  text-[15px] ${showSearch ? "hidden" : "block"}`} />
+              <FaTimes className={`text-black dark:text-white  text-[15px] ${showSearch ? "block" : "hidden"}`} />
+            </button>
+          </div>
           <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 50 50"
             width="30px" height="30px"
@@ -59,7 +61,7 @@ function App() {
         </div>
       </div>
 
-      
+
       <WidgetPanel temperatures={temperatures} />
     </div>
   );

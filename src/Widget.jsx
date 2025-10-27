@@ -7,7 +7,7 @@ function Widget(props) {
     });
 
     return (
-        <div className="border border-black rounded bg-blue-500 p-2 text-white">
+        <div className="rounded bg-blue-500 p-2 text-white">
             <div className="overflow-x-auto">
                 <div className="flex space-x-4 snap-x snap-mandatory scroll-smooth">
                     {temperatureArr}

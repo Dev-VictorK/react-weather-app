@@ -44,7 +44,7 @@ function InputForm(props) {
         <form onSubmit={fetchCityLocation} 
         className={`transform transition-transform duration-300 
         ${props.showSearch ? "opacity-100  -translate-x-1":"opacity-0 translate-x-0"}`}>
-            <input className="border border-black rounded-md m-4 w-40 p-1"
+            <input className="border border-black dark:bg-neutral-500 text-white rounded-full w-40 p-[5px]"
                 placeholder="Enter city"
                 name="city" />
         </form>
