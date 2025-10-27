@@ -35,7 +35,10 @@ function App() {
         </div>
 
         <div className='flex items-center gap-x-3'>
-          <svg fill="#FFFFFF" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="30px" height="30px">
+          <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 50 50"
+            width="30px" height="30px"
+            className='w-[30px] h-[30px] dark:text-white text-black'>
             <SunIcon />
           </svg>
           <ToggleSwitch />
