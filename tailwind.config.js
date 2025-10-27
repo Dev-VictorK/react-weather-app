@@ -4,6 +4,7 @@ module.exports = {
     "./src/**/*.{js,jsx}",
   ],
   theme: {
+    darkMode: "class",
     extend: {
       colors: {
         blackNight: "#212529",
