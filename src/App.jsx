@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { FaSearch, FaTimes } from "react-icons/fa";
 import './App.css';
 import InputForm from './InputForm';
 import WidgetPanel from './WidgetPanel';
@@ -13,6 +14,7 @@ Fetch weather from an API like OpenWeatherMap.
 Display temperature, location, and icon. */}
 function App() {
   const [temperatures, setTemperatures] = useState([]);
+  const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
     if (temperatures.length > 0) {
@@ -35,6 +37,12 @@ function App() {
         </div>
 
         <div className='flex items-center gap-x-3'>
+          <InputForm showSearch={showSearch} temperatures={temperatures} setTemperatures={setTemperatures} />
+          <button
+            onClick={() => setShowSearch(!showSearch)}>
+            <FaSearch className={`text-black dark:text-white  text-[15px] ${showSearch ? "hidden":"block"}`} />
+            <FaTimes className={`text-black dark:text-white  text-[15px] ${showSearch ? "block":"hidden"}`} />
+          </button>
           <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 50 50"
             width="30px" height="30px"
@@ -51,7 +59,7 @@ function App() {
         </div>
       </div>
 
-      <InputForm temperatures={temperatures} setTemperatures={setTemperatures} />
+      
       <WidgetPanel temperatures={temperatures} />
     </div>
   );

@@ -41,11 +41,12 @@ function InputForm(props) {
     }, [geocode])
 
     return (
-        <form onSubmit={fetchCityLocation}>
-            <input className="border border-black rounded-md m-4 p-2"
+        <form onSubmit={fetchCityLocation} 
+        className={`transform transition-transform duration-300 
+        ${props.showSearch ? "opacity-100  -translate-x-1":"opacity-0 translate-x-0"}`}>
+            <input className="border border-black rounded-md m-4 w-40 p-1"
                 placeholder="Enter city"
                 name="city" />
-            <button type="submit" className="border border-black bg-gray-600 text-white p-2 rounded-md">Add</button>
         </form>
     )
 }
