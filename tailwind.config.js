@@ -14,8 +14,12 @@ module.exports = {
         paleWhite:"#F8F9FA",
         dGreen: "#007F5F",
         tdGreen:"#70E000",
+        lGreen:"#16DB65",
+        tlGreen:"#004B23",
         dRed:"#8D0801",
         tdRed:"#FF002B",
+        lRed:"#FF6161",
+        tlRed:"#FF3C1E",
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
