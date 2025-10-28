@@ -20,6 +20,7 @@ module.exports = {
         tdRed:"#FF002B",
         lRed:"#FF6161",
         tlRed:"#FF3C1E",
+        ftGray:"#495057",
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],

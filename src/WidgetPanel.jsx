@@ -8,7 +8,7 @@ function WidgetPanel(props) {
     });
 
     return (
-        <div className="flex justify-center w-full p-2">
+        <div className="flex justify-center w-full">
             <Widget/>
         </div>
     )

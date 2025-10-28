@@ -23,7 +23,7 @@ function App() {
   }, [temperatures])
 
   return (
-    <div className="App dark:bg-blackNight bg-lightDay h-screen">
+    <div className="App dark:bg-blackNight bg-lightDay h-full pb-8">
       <div className='flex flex-row items-center justify-between px-2'>
         <div className='flex items-center gap-x-2'>
           <svg xmlns="http://www.w3.org/2000/svg"
@@ -60,8 +60,6 @@ function App() {
           </svg>
         </div>
       </div>
-
-
       <WidgetPanel temperatures={temperatures} />
     </div>
   );
