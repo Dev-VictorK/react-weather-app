@@ -227,7 +227,7 @@ function Widget(props) {
                 <span className="mt-1 px-6 py-[6px] bg-lGreen text-tlGreen dark:bg-dGreen/60 dark:text-tdGreen text-sm font-semibold rounded-full">All good</span>
             </div>
             <div className="flex justify-center">
-                <button className="mt-1 w-5/6 py-2 bg-lRed/60 text-tlRed dark:bg-dRed dark:text-tdRed text-center rounded-full text-sm font-semibold">Delete</button>
+                <button className="mt-1 w-5/6 py-2 bg-lRed/60 text-tlRed dark:bg-dRed dark:text-tdRed dark:hover:bg-lRed hover:bg-dRed text-center rounded-full text-sm font-semibold">Delete</button>
             </div>
         </div>
     )
