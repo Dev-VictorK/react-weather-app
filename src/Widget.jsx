@@ -37,7 +37,7 @@ function Widget(props) {
             </div>
             <div className="grid grid-cols-3 p-2 text-white">
                 {/* Sunny Section */}
-                <div className="flex flex-col items-center justify-center p-4 rounded-2xl">
+                <div className="flex flex-col items-center justify-center rounded-2xl">
                     <div className="text-6xl">☀️</div>
                 </div>
 
@@ -52,7 +52,7 @@ function Widget(props) {
                     </svg>
                     <p className="text-[18px] font-poppins">80</p>
                     <p className="text-[10px] font-poppins font-extralight">mm</p>
-                    <span className="mt-1 px-3 py-1 bg-green-600 rounded-full text-sm">Good</span>
+                    <span className="mt-1 px-6 py-[3px] bg-dGreen/60 text-tdGreen text-sm font-semibold rounded-full">Wet</span>
                 </div>
 
                 {/* Wind */}
@@ -66,35 +66,35 @@ function Widget(props) {
                     </svg>
                     <p className="text-[18px] font-poppins">20</p>
                     <p className="text-[10px] font-poppins font-extralight">km/h</p>
-                    <span className="mt-1 px-3 py-1 bg-green-600 rounded-full text-sm">Good</span>
+                    <span className="mt-1 w-32 py-[3px] bg-dRed text-tdRed rounded-full text-sm font-semibold">Extremely windy</span>
                 </div>
 
-                {/* Precipitation */}
+                {/* Air Quality Index */}
                 <div className="flex flex-col items-center justify-center p-2  rounded-2xl">
-                    <p className="text-[12px] font-poppins font-light">Precipitation</p>
+                    <p className="text-[12px] font-poppins font-light">Air Quality Index</p>
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                         fill="currentColor"
                         viewBox="0 0 100 100"
                         className='w-[20px] h-[20px] dark:text-white text-black'>
                         <NightIcon />
                     </svg>
-                    <p className="text-[18px] font-poppins">80</p>
-                    <p className="text-[10px] font-poppins font-extralight">mm</p>
-                    <span className="mt-1 px-3 py-1 bg-green-600 rounded-full text-sm">Good</span>
+                    <p className="text-[18px] font-poppins">23</p>
+                    <p className="text-[10px] font-poppins font-extralight">ppm</p>
+                    <span className="mt-1 px-6 py-[3px] bg-dGreen/60 text-tdGreen text-sm font-semibold rounded-full">Good</span>
                 </div>
 
-                {/* Wind */}
+                {/* Humidity*/}
                 <div className="flex flex-col items-center justify-center p-2  rounded-2xl">
-                    <p className="text-[12px] font-poppins font-light">Wind</p>
+                    <p className="text-[12px] font-poppins font-light">Humidity</p>
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                         fill="currentColor"
                         viewBox="0 0 100 100"
                         className='w-[20px] h-[20px] dark:text-white text-black'>
                         <NightIcon />
                     </svg>
-                    <p className="text-[18px] font-poppins">20</p>
-                    <p className="text-[10px] font-poppins font-extralight">km/h</p>
-                    <span className="mt-1 px-3 py-1 bg-green-600 rounded-full text-sm">Good</span>
+                    <p className="text-[18px] font-poppins">17</p>
+                    <p className="text-[10px] font-poppins font-extralight">g/m³</p>
+                    <span className="mt-1 px-6 py-[3px] bg-dGreen/60 text-tdGreen text-sm font-semibold rounded-full">Average</span>
                 </div>
 
                 {/* UV Index */}
@@ -107,11 +107,13 @@ function Widget(props) {
                         <NightIcon />
                     </svg>
                     <p className="text-[18px] font-poppins">25</p>
-                    <p className="text-[10px] font-poppins font-extralight">mW/m2</p>
-                    <span className="mt-1 px-3 py-1 bg-green-600 rounded-full text-sm">Good</span>
+                    <p className="text-[10px] font-poppins font-extralight">mW/m²</p>
+                    <span className="mt-1 px-6 py-[3px] bg-dGreen/60 text-tdGreen text-sm font-semibold rounded-full">Good</span>
                 </div>
             </div>
-
+            <div className="flex flex-row items-center justify-center">
+                <h1 className="text-md dark:text-white text-black">Forecast</h1>
+            </div>
         </div>
     )
 }
