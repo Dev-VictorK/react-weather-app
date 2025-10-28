@@ -11,6 +11,7 @@ module.exports = {
         lightDay: "#FCFCFC",
         cardDark: "#343A40",
         smoothGray: "#ADB5BD",
+        paleWhite:"#F8F9FA",
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],

@@ -1,3 +1,6 @@
+import CloudIcon from "./cloudIcon";
+import NightIcon from "./nightIcon";
+import SunIcon from "./sunIcon";
 import Temperature from "./Temperature";
 
 function Widget(props) {
@@ -6,7 +9,7 @@ function Widget(props) {
         <div className="rounded-md shadow-md bg-white dark:bg-cardDark p-4 h-[500px] w-[400px] text-white">
             <div className="flex flex-row justify-between">
                 <div>
-                    <h1 className="text-black dark:text-white text-lg font-poppins font-medium">Nairobi, KE</h1>
+                    <h1 className="text-black dark:text-paleWhite text-lg font-poppins font-medium">Nairobi, KE</h1>
                 </div>
                 <div className="flex flex-row gap-x-2 items-center">
                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -29,9 +32,86 @@ function Widget(props) {
                 <p className="text-cardDark dark:text-smoothGray font-poppins font-medium text-[12px]">Longitude: -1.34523</p>
             </div>
             <div className="flex flex-row justify-around mt-4">
-                <p className="text-black dark:text-white text-[14px] font-poppins font-medium">Sunny</p>
-                <p className="text-black dark:text-white text-[14px] font-poppins font-medium">Current Conditions</p>
+                <p className="text-black dark:text-paleWhite text-[14px] font-poppins font-medium">Sunny</p>
+                <p className="text-black dark:text-paleWhite text-[14px] font-poppins font-medium">Current Conditions</p>
             </div>
+            <div className="grid grid-cols-3 p-2 text-white">
+                {/* Sunny Section */}
+                <div className="flex flex-col items-center justify-center p-4 rounded-2xl">
+                    <div className="text-6xl">☀️</div>
+                </div>
+
+                {/* Precipitation */}
+                <div className="flex flex-col items-center justify-center p-2  rounded-2xl">
+                    <p className="text-[12px] font-poppins font-light">Precipitation</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                        fill="currentColor"
+                        viewBox="0 0 100 100"
+                        className='w-[20px] h-[20px] dark:text-white text-black'>
+                        <NightIcon />
+                    </svg>
+                    <p className="text-[18px] font-poppins">80</p>
+                    <p className="text-[10px] font-poppins font-extralight">mm</p>
+                    <span className="mt-1 px-3 py-1 bg-green-600 rounded-full text-sm">Good</span>
+                </div>
+
+                {/* Wind */}
+                <div className="flex flex-col items-center justify-center p-2  rounded-2xl">
+                    <p className="text-[12px] font-poppins font-light">Wind</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                        fill="currentColor"
+                        viewBox="0 0 100 100"
+                        className='w-[20px] h-[20px] dark:text-white text-black'>
+                        <NightIcon />
+                    </svg>
+                    <p className="text-[18px] font-poppins">20</p>
+                    <p className="text-[10px] font-poppins font-extralight">km/h</p>
+                    <span className="mt-1 px-3 py-1 bg-green-600 rounded-full text-sm">Good</span>
+                </div>
+
+                {/* Precipitation */}
+                <div className="flex flex-col items-center justify-center p-2  rounded-2xl">
+                    <p className="text-[12px] font-poppins font-light">Precipitation</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                        fill="currentColor"
+                        viewBox="0 0 100 100"
+                        className='w-[20px] h-[20px] dark:text-white text-black'>
+                        <NightIcon />
+                    </svg>
+                    <p className="text-[18px] font-poppins">80</p>
+                    <p className="text-[10px] font-poppins font-extralight">mm</p>
+                    <span className="mt-1 px-3 py-1 bg-green-600 rounded-full text-sm">Good</span>
+                </div>
+
+                {/* Wind */}
+                <div className="flex flex-col items-center justify-center p-2  rounded-2xl">
+                    <p className="text-[12px] font-poppins font-light">Wind</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                        fill="currentColor"
+                        viewBox="0 0 100 100"
+                        className='w-[20px] h-[20px] dark:text-white text-black'>
+                        <NightIcon />
+                    </svg>
+                    <p className="text-[18px] font-poppins">20</p>
+                    <p className="text-[10px] font-poppins font-extralight">km/h</p>
+                    <span className="mt-1 px-3 py-1 bg-green-600 rounded-full text-sm">Good</span>
+                </div>
+
+                {/* UV Index */}
+                <div className="flex flex-col items-center justify-center p-2  rounded-2xl">
+                    <p className="text-[12px] font-poppins font-light">UV Index</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                        fill="currentColor"
+                        viewBox="0 0 100 100"
+                        className='w-[20px] h-[20px] dark:text-white text-black'>
+                        <NightIcon />
+                    </svg>
+                    <p className="text-[18px] font-poppins">25</p>
+                    <p className="text-[10px] font-poppins font-extralight">mW/m2</p>
+                    <span className="mt-1 px-3 py-1 bg-green-600 rounded-full text-sm">Good</span>
+                </div>
+            </div>
+
         </div>
     )
 }
