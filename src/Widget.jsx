@@ -7,6 +7,7 @@ import SunIcon from "./assets/images/sun-480.png";
 import Temperature from "./Temperature";
 import UVIndexIcon from "./uvIndexIcon";
 import WindIcon from "./windIcon";
+import RefreshIcon from "./refreshIcon";
 
 
 function Widget(props) {
@@ -30,9 +31,8 @@ function Widget(props) {
                         viewBox="0 0 100 100"
                         fill="currentColor"
                         className={`dark:text-white text-black w-[20px] h-[30px]`}>
-                        <path d="M 42.5,7.5 C 67.6626,6.15357 83.8293,17.4869 91,41.5C 93.4646,59.7311 87.2979,74.2311 72.5,85C 49.5303,96.6736 30.0303,92.5069 14,72.5C 9.00543,64.8561 7.00543,56.5228 8,47.5C 10,44.8333 12,44.8333 14,47.5C 16.3014,72.2167 29.8014,84.3834 54.5,84C 70.9871,80.8463 80.8204,71.0129 84,54.5C 84.8164,33.3233 74.9831,20.1566 54.5,15C 41.4224,13.686 30.7558,18.0194 22.5,28C 25.2263,28.1816 27.8929,28.6816 30.5,29.5C 31.9535,31.6439 31.6201,33.4773 29.5,35C 23.5,35.6667 17.5,35.6667 11.5,35C 11,34.5 10.5,34 10,33.5C 9.33333,27.5 9.33333,21.5 10,15.5C 11.5227,13.3799 13.3561,13.0465 15.5,14.5C 16.3184,17.1071 16.8184,19.7737 17,22.5C 23.968,14.6579 32.468,9.65786 42.5,7.5 Z" />
-                        <path d="M 45.5,26.5 C 48.0792,26.0833 50.2458,26.75 52,28.5C 52.4997,36.1594 52.6664,43.8261 52.5,51.5C 57.7616,51.1953 62.9283,51.5286 68,52.5C 68.8632,54.7489 68.3632,56.5822 66.5,58C 59.5857,58.8112 52.7524,58.6445 46,57.5C 44.1692,47.2196 44.0025,36.8862 45.5,26.5 Z" />
-                    </svg>
+                        <RefreshIcon/>
+                        </svg>
                     <svg xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 32 32"
                         fill="currentColor"
@@ -53,7 +53,7 @@ function Widget(props) {
                 {/* Sunny Section */}
                 <div className="flex flex-col items-center justify-center rounded-2xl">
                     <img src={SunIcon} width={100} height={100} alt="sun"
-                    className="animate-spin-slow"/>
+                    className=""/>
                 </div>
 
                 {/* Precipitation */}
