@@ -1,14 +1,19 @@
+import AirQualityIcon from "./airQualityIcon";
 import CloudIcon from "./cloudIcon";
+import HumidityIcon from "./humidityIcon";
 import NightIcon from "./nightIcon";
-import SunIcon from "./sunIcon";
+import Precipitation from "./precipitation";
+import SunIcon from "./assets/images/sun-480.png";
 import Temperature from "./Temperature";
+import UVIndexIcon from "./uvIndexIcon";
+import WindIcon from "./windIcon";
+
 
 function Widget(props) {
 
     window.addEventListener("load", () => {
         const container = document.querySelector(".snap-x");
         const active = document.querySelector("#active");
-        //scroll to the left until center of active is equal to center of container
         const containerCenter = container.offsetWidth / 2;
         container.scrollLeft = active.offsetLeft - container.offsetLeft - containerCenter; 
     });
@@ -44,10 +49,11 @@ function Widget(props) {
                 <p className="text-black dark:text-paleWhite text-[14px] font-poppins font-medium">Sunny</p>
                 <p className="text-black dark:text-paleWhite text-[14px] font-poppins font-medium">Current Conditions</p>
             </div>
-            <div className="grid grid-cols-3 p-2 text-white">
+            <div className="grid grid-cols-3 pt-0 p-2 text-white">
                 {/* Sunny Section */}
                 <div className="flex flex-col items-center justify-center rounded-2xl">
-                    <div className="text-6xl">☀️</div>
+                    <img src={SunIcon} width={100} height={100} alt="sun"
+                    className="animate-spin-slow"/>
                 </div>
 
                 {/* Precipitation */}
@@ -55,9 +61,10 @@ function Widget(props) {
                     <p className="text-[12px] font-poppins font-light dark:text-white text-black">Precipitation</p>
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                         fill="currentColor"
+                        fillRule="evenodd"
                         viewBox="0 0 100 100"
                         className='w-[20px] h-[20px] dark:text-white text-black'>
-                        <NightIcon />
+                        <Precipitation/>
                     </svg>
                     <p className="text-[18px] font-poppins text-black dark:text-white">80</p>
                     <p className="text-[10px] font-poppins font-extralight text-black dark:text-white">mm</p>
@@ -71,7 +78,7 @@ function Widget(props) {
                         fill="currentColor"
                         viewBox="0 0 100 100"
                         className='w-[20px] h-[20px] dark:text-white text-black'>
-                        <NightIcon />
+                        <WindIcon/>
                     </svg>
                     <p className="text-[18px] font-poppins dark:text-white text-black">20</p>
                     <p className="text-[10px] font-poppins font-extralight dark:text-white text-black">km/h</p>
@@ -85,7 +92,7 @@ function Widget(props) {
                         fill="currentColor"
                         viewBox="0 0 100 100"
                         className='w-[20px] h-[20px] dark:text-white text-black'>
-                        <NightIcon />
+                        <AirQualityIcon/>
                     </svg>
                     <p className="text-[18px] font-poppins dark:text-white text-black">23</p>
                     <p className="text-[10px] font-poppins font-extralight dark:text-white text-black">ppm</p>
@@ -97,9 +104,10 @@ function Widget(props) {
                     <p className="text-[12px] font-poppins font-light dark:text-white text-black">Humidity</p>
                     <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
                         fill="currentColor"
+                        fillRule="evenodd"
                         viewBox="0 0 100 100"
                         className='w-[20px] h-[20px] dark:text-white text-black'>
-                        <NightIcon />
+                        <HumidityIcon/>
                     </svg>
                     <p className="text-[18px] font-poppins dark:text-white text-black">17</p>
                     <p className="text-[10px] font-poppins font-extralight dark:text-white text-black">g/m³</p>
@@ -113,7 +121,7 @@ function Widget(props) {
                         fill="currentColor"
                         viewBox="0 0 100 100"
                         className='w-[20px] h-[20px] dark:text-white text-black'>
-                        <NightIcon />
+                        <UVIndexIcon/>
                     </svg>
                     <p className="text-[18px] font-poppins dark:text-white text-black">25</p>
                     <p className="text-[10px] font-poppins font-extralight dark:text-white text-black">mW/m²</p>
@@ -123,7 +131,7 @@ function Widget(props) {
             <div className="flex flex-row items-center justify-center">
                 <h1 className="text-md dark:text-white text-black">Forecast</h1>
             </div>
-            <div className="flex flex-row overflow-x-auto mx-4 gap-x-3 scrollbar-light dark:scrollbar  snap-x snap-mandatory scroll-smooth">
+            <div className="flex flex-row overflow-x-auto mx-4 mt-3 gap-x-3 scrollbar-light dark:scrollbar  snap-x snap-mandatory scroll-smooth">
                 <div className="flex flex-col snap-center items-center">
                     <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
                     <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>

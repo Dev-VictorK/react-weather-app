@@ -6,6 +6,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      animation: {
+        'spin-slow': 'spin 5s linear infinite',   // slower
+        'spin-medium': 'spin 1.5s linear infinite', // medium
+        'spin-fast': 'spin 0.5s linear infinite',  // faster
+      },
       colors: {
         blackNight: "#212529",
         lightDay: "#FCFCFC",
