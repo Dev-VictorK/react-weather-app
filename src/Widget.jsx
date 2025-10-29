@@ -8,11 +8,9 @@ function Widget(props) {
     window.addEventListener("load", () => {
         const container = document.querySelector(".snap-x");
         const active = document.querySelector("#active");
-        console.log(container.offsetWidth / active.offsetWidth);
         //scroll to the left until center of active is equal to center of container
         const containerCenter = container.offsetWidth / 2;
-        const activeCenter = active.offsetWidth / 2;
-        container.scrollLeft = containerCenter - activeCenter;
+        container.scrollLeft = active.offsetLeft - container.offsetLeft - containerCenter; 
     });
 
 
@@ -146,7 +144,7 @@ function Widget(props) {
                     <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
                     <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
                 </div>
-                <div className="flex flex-col snap-center items-center">
+                <div className="flex flex-col snap-center items-center" >
                     <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
                     <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
                     <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
@@ -156,17 +154,17 @@ function Widget(props) {
                     <p className="font-poppins font-medium text-[14px] text-blue-500">21°/24°</p>
                     <p className="font-poppins font-light text-[12px] text-blue-500">Center</p>
                 </div>
-                <div className="flex flex-col snap-center items-center">
+                <div className="flex flex-col snap-center items-center" >
                     <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
                     <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
                     <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
                 </div>
-                <div className="flex flex-col snap-center items-center">
+                <div className="flex flex-col snap-center items-center" >
                     <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
                     <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
                     <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
                 </div>
-                <div className="flex flex-col snap-center items-center">
+                <div className="flex flex-col snap-center items-center" >
                     <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
                     <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
                     <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
