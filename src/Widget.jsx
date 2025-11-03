@@ -66,7 +66,7 @@ function Widget({weather}) {
                         className='w-[20px] h-[20px] dark:text-white text-black'>
                         <Precipitation/>
                     </svg>
-                    <p className="text-[18px] font-poppins text-black dark:text-white">80</p>
+                    <p className="text-[18px] font-poppins text-black dark:text-white">{Math.floor(weather?.hourly?.precipitation?.[12]) || "80"}</p>
                     <p className="text-[10px] font-poppins font-extralight text-black dark:text-white">mm</p>
                     <span className="mt-1 px-6 py-[3px] bg-lGreen text-tlGreen dark:bg-dGreen/60 dark:text-tdGreen text-sm font-semibold rounded-full">Wet</span>
                 </div>
@@ -80,7 +80,7 @@ function Widget({weather}) {
                         className='w-[20px] h-[20px] dark:text-white text-black'>
                         <WindIcon/>
                     </svg>
-                    <p className="text-[18px] font-poppins dark:text-white text-black">20</p>
+                    <p className="text-[18px] font-poppins dark:text-white text-black">{Math.floor(weather?.hourly?.wind_speed_10m?.[12]) || "10"}</p>
                     <p className="text-[10px] font-poppins font-extralight dark:text-white text-black">km/h</p>
                     <span className="mt-1 w-32 py-[3px] bg-lRed/60 text-tlRed dark:bg-dRed/60 dark:text-tdRed text-center rounded-full text-sm font-semibold">Extremely windy</span>
                 </div>
@@ -109,7 +109,7 @@ function Widget({weather}) {
                         className='w-[20px] h-[20px] dark:text-white text-black'>
                         <HumidityIcon/>
                     </svg>
-                    <p className="text-[18px] font-poppins dark:text-white text-black">17</p>
+                    <p className="text-[18px] font-poppins dark:text-white text-black">{Math.floor(weather?.hourly?.relative_humidity_2m?.[12]) || "17"}</p>
                     <p className="text-[10px] font-poppins font-extralight dark:text-white text-black">g/m³</p>
                     <span className="mt-1 px-6 py-[3px] bg-lGreen text-tlGreen dark:bg-dGreen/60 dark:text-tdGreen text-sm font-semibold rounded-full">Average</span>
                 </div>
@@ -123,7 +123,7 @@ function Widget({weather}) {
                         className='w-[20px] h-[20px] dark:text-white text-black'>
                         <UVIndexIcon/>
                     </svg>
-                    <p className="text-[18px] font-poppins dark:text-white text-black">25</p>
+                    <p className="text-[18px] font-poppins dark:text-white text-black">{Math.floor(weather?.hourly?.uv_index?.[12]) || "25"}</p>
                     <p className="text-[10px] font-poppins font-extralight dark:text-white text-black">mW/m²</p>
                     <span className="mt-1 px-6 py-[3px] bg-lGreen text-tlGreen dark:bg-dGreen/60 dark:text-tdGreen text-sm font-semibold rounded-full">Good</span>
                 </div>
