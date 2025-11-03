@@ -2,14 +2,11 @@ import Widget from "./Widget";
 
 function WidgetPanel(props) {
     
-    const widgets = props.temperatures.map((item, index) => {
-        return <Widget key={index} temperature={item.temperatures}
-            city={item.city} country={item.country_code} />
-    });
+    console.log(props.weather);
 
     return (
         <div className="flex justify-center w-full">
-            <Widget/>
+            <Widget weather={props.weather}/>
         </div>
     )
 }

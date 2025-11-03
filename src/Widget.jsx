@@ -10,7 +10,7 @@ import WindIcon from "./windIcon";
 import RefreshIcon from "./refreshIcon";
 
 
-function Widget(props) {
+function Widget({weather}) {
 
     window.addEventListener("load", () => {
         const container = document.querySelector(".snap-x");
@@ -190,38 +190,38 @@ function Widget(props) {
             </div>
             <div className="flex flex-row overflow-x-clip w-full gap-x-2 justify-center items-center mt-3 ">
                 <div className="flex flex-col snap-center items-center">
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">Su</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/16°</p>
+                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">{weather?.daily?.time[0].toDateString().split(" ")[0] || "Su"}</p>
+                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">{Math.floor(weather?.daily?.temperature_2m_min[0]) || "16"}°/{Math.ceil(weather?.daily?.temperature_2m_max[0]) || "21"}°</p>
                     <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
                 </div>
                 <div className="flex flex-col snap-center items-center">
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">Mo</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/16°</p>
+                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">{weather?.daily?.time[1].toDateString().split(" ")[0] || "Mo"}</p>
+                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">{Math.floor(weather?.daily?.temperature_2m_min[1]) || "16"}°/{Math.ceil(weather?.daily?.temperature_2m_max[1]) || "21"}°</p>
                     <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
                 </div>
                 <div className="flex flex-col snap-center items-center">
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">Tu</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/16°</p>
+                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">{weather?.daily?.time[2].toDateString().split(" ")[0] || "Tu"}</p>
+                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">{Math.floor(weather?.daily?.temperature_2m_min[2]) || "16"}°/{Math.ceil(weather?.daily?.temperature_2m_max[2]) || "21"}°</p>
                     <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
                 </div>
                 <div className="flex flex-col snap-center items-center">
-                    <p className="font-poppins font-light text-[12px] text-blue-500">We</p>
-                    <p className="font-poppins font-medium text-[14px] text-blue-500">21°/16°</p>
+                    <p className="font-poppins font-light text-[12px] text-blue-500">{weather?.daily?.time[3].toDateString().split(" ")[0] || "We"}</p>
+                    <p className="font-poppins font-medium text-[14px] text-blue-500">{Math.floor(weather?.daily?.temperature_2m_min[3]) || "16"}°/{Math.ceil(weather?.daily?.temperature_2m_max[3]) || "21"}°</p>
                     <p className="font-poppins font-light text-[12px] text-blue-500">Celsius</p>
                 </div>
                 <div className="flex flex-col snap-center items-center">
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">Th</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/16°</p>
+                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">{weather?.daily?.time[4].toDateString().split(" ")[0] || "Th"}</p>
+                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">{Math.floor(weather?.daily?.temperature_2m_min[4]) || "16"}°/{Math.ceil(weather?.daily?.temperature_2m_max[4]) || "21"}°</p>
                     <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
                 </div>
                 <div className="flex flex-col snap-center items-center">
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">Fr</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/16°</p>
+                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">{weather?.daily?.time[5].toDateString().split(" ")[0] || "Fr"}</p>
+                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">{Math.floor(weather?.daily?.temperature_2m_min[5]) || "16"}°/{Math.ceil(weather?.daily?.temperature_2m_max[5]) || "21"}°</p>
                     <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
                 </div>
                 <div className="flex flex-col snap-center items-center">
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">Sa</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/16°</p>
+                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">{weather?.daily?.time[6].toDateString().split(" ")[0] || "Sa"}</p>
+                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">{Math.floor(weather?.daily?.temperature_2m_min[6]) || "16"}°/{Math.ceil(weather?.daily?.temperature_2m_max[6]) || "21"}°</p>
                     <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
                 </div>
             </div>

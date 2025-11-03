@@ -13,14 +13,14 @@ Fetch weather from an API like OpenWeatherMap.
 
 Display temperature, location, and icon. */}
 function App() {
-  const [temperatures, setTemperatures] = useState([]);
+  const [weather, setWeather] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
-    if (temperatures.length > 0) {
-      console.log(temperatures);
+    if (weather.length > 0) {
+      console.log(weather);
     }
-  }, [temperatures])
+  }, [weather])
 
   return (
     <div className="App dark:bg-blackNight bg-lightDay h-full pb-8">
@@ -38,7 +38,7 @@ function App() {
 
         <div className='flex items-center gap-x-2'>
           <div className='flex flex-row gap-x-1'>
-            <InputForm showSearch={showSearch} temperatures={temperatures} setTemperatures={setTemperatures} />
+            <InputForm showSearch={showSearch} weather={weather} setWeather={setWeather} />
             <button
               onClick={() => setShowSearch(!showSearch)}>
               <FaSearch className={`text-black dark:text-white  text-[15px] ${showSearch ? "hidden" : "block"}`} />
@@ -60,7 +60,7 @@ function App() {
           </svg>
         </div>
       </div>
-      <WidgetPanel temperatures={temperatures} />
+      <WidgetPanel weather={weather} />
     </div>
   );
 }
