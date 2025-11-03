@@ -29,7 +29,7 @@ function InputForm(props) {
             "latitude": lat,
             "longitude": longi,
             "daily": ["temperature_2m_min", "temperature_2m_max"],
-            "hourly": ["temperature_2m","precipitation", "wind_speed_10m", "uv_index", "relative_humidity_2m"],
+            "hourly": ["precipitation", "wind_speed_10m", "uv_index", "relative_humidity_2m", "temperature_2m", "apparent_temperature"],
             "timezone": "auto",
             "past_days": 3,
             "forecast_days": 4,

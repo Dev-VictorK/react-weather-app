@@ -8,16 +8,29 @@ import Temperature from "./Temperature";
 import UVIndexIcon from "./uvIndexIcon";
 import WindIcon from "./windIcon";
 import RefreshIcon from "./refreshIcon";
+import HourTemp from "./HourTemp";
 
 
-function Widget({weather}) {
+function Widget({ weather }) {
 
     window.addEventListener("load", () => {
         const container = document.querySelector(".snap-x");
         const active = document.querySelector("#active");
         const containerCenter = container.offsetWidth / 2;
-        container.scrollLeft = active.offsetLeft - container.offsetLeft - containerCenter; 
+        container.scrollLeft = active.offsetLeft - container.offsetLeft - containerCenter;
     });
+    let HourTempItems = [];
+    for (let i = 0; i < weather?.hourly?.time?.length; i++) {
+        const date = new Date(weather.hourly.time[i]);
+
+        let hours = date.getHours();
+        const suffix = hours >= 12 ? "PM" : "AM";
+        hours = hours % 12 || 12;
+
+        const time = `${hours} ${suffix}`;
+
+        HourTempItems.push(<HourTemp key={i} time={time}/>)
+    }
 
 
     return (
@@ -31,8 +44,8 @@ function Widget({weather}) {
                         viewBox="0 0 100 100"
                         fill="currentColor"
                         className={`dark:text-white text-black w-[20px] h-[30px]`}>
-                        <RefreshIcon/>
-                        </svg>
+                        <RefreshIcon />
+                    </svg>
                     <svg xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 32 32"
                         fill="currentColor"
@@ -53,7 +66,7 @@ function Widget({weather}) {
                 {/* Sunny Section */}
                 <div className="flex flex-col items-center justify-center rounded-2xl">
                     <img src={SunIcon} width={100} height={100} alt="sun"
-                    className=""/>
+                        className="" />
                 </div>
 
                 {/* Precipitation */}
@@ -64,7 +77,7 @@ function Widget({weather}) {
                         fillRule="evenodd"
                         viewBox="0 0 100 100"
                         className='w-[20px] h-[20px] dark:text-white text-black'>
-                        <Precipitation/>
+                        <Precipitation />
                     </svg>
                     <p className="text-[18px] font-poppins text-black dark:text-white">{Math.floor(weather?.hourly?.precipitation?.[12]) || "80"}</p>
                     <p className="text-[10px] font-poppins font-extralight text-black dark:text-white">mm</p>
@@ -78,7 +91,7 @@ function Widget({weather}) {
                         fill="currentColor"
                         viewBox="0 0 100 100"
                         className='w-[20px] h-[20px] dark:text-white text-black'>
-                        <WindIcon/>
+                        <WindIcon />
                     </svg>
                     <p className="text-[18px] font-poppins dark:text-white text-black">{Math.floor(weather?.hourly?.wind_speed_10m?.[12]) || "10"}</p>
                     <p className="text-[10px] font-poppins font-extralight dark:text-white text-black">km/h</p>
@@ -92,7 +105,7 @@ function Widget({weather}) {
                         fill="currentColor"
                         viewBox="0 0 100 100"
                         className='w-[20px] h-[20px] dark:text-white text-black'>
-                        <AirQualityIcon/>
+                        <AirQualityIcon />
                     </svg>
                     <p className="text-[18px] font-poppins dark:text-white text-black">23</p>
                     <p className="text-[10px] font-poppins font-extralight dark:text-white text-black">ppm</p>
@@ -107,7 +120,7 @@ function Widget({weather}) {
                         fillRule="evenodd"
                         viewBox="0 0 100 100"
                         className='w-[20px] h-[20px] dark:text-white text-black'>
-                        <HumidityIcon/>
+                        <HumidityIcon />
                     </svg>
                     <p className="text-[18px] font-poppins dark:text-white text-black">{Math.floor(weather?.hourly?.relative_humidity_2m?.[12]) || "17"}</p>
                     <p className="text-[10px] font-poppins font-extralight dark:text-white text-black">g/m³</p>
@@ -121,7 +134,7 @@ function Widget({weather}) {
                         fill="currentColor"
                         viewBox="0 0 100 100"
                         className='w-[20px] h-[20px] dark:text-white text-black'>
-                        <UVIndexIcon/>
+                        <UVIndexIcon />
                     </svg>
                     <p className="text-[18px] font-poppins dark:text-white text-black">{Math.floor(weather?.hourly?.uv_index?.[12]) || "25"}</p>
                     <p className="text-[10px] font-poppins font-extralight dark:text-white text-black">mW/m²</p>
@@ -132,61 +145,7 @@ function Widget({weather}) {
                 <h1 className="text-md dark:text-white text-black">Forecast</h1>
             </div>
             <div className="flex flex-row overflow-x-auto mx-4 mt-3 gap-x-3 scrollbar-light dark:scrollbar  snap-x snap-mandatory scroll-smooth">
-                <div className="flex flex-col snap-center items-center">
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
-                </div>
-                <div className="flex flex-col snap-center items-center">
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
-                </div>
-                <div className="flex flex-col snap-center items-center">
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
-                </div>
-                <div className="flex flex-col snap-center items-center">
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
-                </div>
-                <div className="flex flex-col snap-center items-center" >
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
-                </div>
-                <div className="flex flex-col snap-center items-center" id="active">
-                    <p className="font-poppins font-light text-[12px] text-blue-500">3 PM</p>
-                    <p className="font-poppins font-medium text-[14px] text-blue-500">21°/24°</p>
-                    <p className="font-poppins font-light text-[12px] text-blue-500">Center</p>
-                </div>
-                <div className="flex flex-col snap-center items-center" >
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
-                </div>
-                <div className="flex flex-col snap-center items-center" >
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
-                </div>
-                <div className="flex flex-col snap-center items-center" >
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
-                </div>
-                <div className="flex flex-col snap-center items-center">
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
-                </div>
-                <div className="flex flex-col snap-center items-center">
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-ftGray">12 PM</p>
-                    <p className="font-poppins font-medium text-[14px] dark:text-white text-black">21°/24°</p>
-                    <p className="font-poppins font-light text-[12px] dark:text-white text-black">Celsius</p>
-                </div>
+                {HourTempItems}
             </div>
             <div className="flex flex-row overflow-x-clip w-full gap-x-2 justify-center items-center mt-3 ">
                 <div className="flex flex-col snap-center items-center">
