@@ -15,6 +15,7 @@ Display temperature, location, and icon. */}
 function App() {
   const [weather, setWeather] = useState([]);
   const [showSearch, setShowSearch] = useState(false);
+  const [geocode, setGeocode] = useState([]);
 
   useEffect(() => {
     if (weather.length > 0) {
@@ -23,7 +24,7 @@ function App() {
   }, [weather])
 
   return (
-    <div className="App dark:bg-blackNight bg-lightDay h-full pb-8">
+    <div className="App dark:bg-blackNight bg-lightDay min-h-screen pb-8">
       <div className='flex flex-row items-center justify-between px-2'>
         <div className='flex items-center gap-x-2'>
           <svg xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +39,7 @@ function App() {
 
         <div className='flex items-center gap-x-2'>
           <div className='flex flex-row gap-x-1'>
-            <InputForm showSearch={showSearch} weather={weather} setWeather={setWeather} />
+            <InputForm showSearch={showSearch} geocode={geocode} setGeocode={setGeocode} weather={weather} setWeather={setWeather} />
             <button
               onClick={() => setShowSearch(!showSearch)}>
               <FaSearch className={`text-black dark:text-white  text-[15px] ${showSearch ? "hidden" : "block"}`} />
@@ -60,7 +61,7 @@ function App() {
           </svg>
         </div>
       </div>
-      <WidgetPanel weather={weather} />
+      <WidgetPanel weather={weather} setGeocode={setGeocode} geocode={geocode}/>
     </div>
   );
 }

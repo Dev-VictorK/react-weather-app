@@ -6,7 +6,7 @@ function WidgetPanel(props) {
 
     return (
         <div className="flex justify-center w-full">
-            <Widget weather={props.weather}/>
+            <Widget weather={props.weather} setGeocode={props.setGeocode} geocode={props.geocode}/>
         </div>
     )
 }

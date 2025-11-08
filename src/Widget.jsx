@@ -9,16 +9,20 @@ import UVIndexIcon from "./uvIndexIcon";
 import WindIcon from "./windIcon";
 import RefreshIcon from "./refreshIcon";
 import HourTemp from "./HourTemp";
+import { PiDropSimple } from "react-icons/pi";
 
 
-function Widget({ weather }) {
+function Widget({ weather, geocode, setGeocode }) {
 
-    window.addEventListener("load", () => {
-        const container = document.querySelector(".snap-x");
-        const active = document.querySelector("#active");
-        const containerCenter = container.offsetWidth / 2;
-        container.scrollLeft = active.offsetLeft - container.offsetLeft - containerCenter;
-    });
+    if (geocode.results) {
+        window.addEventListener("load", () => {
+            const container = document.querySelector(".snap-x");
+            const active = document.querySelector("#active");
+            const containerCenter = container.offsetWidth / 2;
+            container.scrollLeft = active.offsetLeft - container.offsetLeft - containerCenter;
+        });
+    }
+    console.log(geocode)
     let HourTempItems = [];
     for (let i = 0; i < weather?.hourly?.time?.length; i++) {
         const date = new Date(weather.hourly.time[i]);
@@ -29,15 +33,18 @@ function Widget({ weather }) {
 
         const time = `${hours} ${suffix}`;
 
-        HourTempItems.push(<HourTemp key={i} time={time}/>)
+        HourTempItems.push(<HourTemp key={i} time={time} />)
     }
+    if (geocode.length === 0) return <p>There's nothing to see here</p>
 
 
     return (
         <div className="rounded-md shadow-md bg-white dark:bg-cardDark p-4 h-auto w-[400px] text-white">
             <div className="flex flex-row justify-between">
                 <div>
-                    <h1 className="text-black dark:text-paleWhite text-lg font-poppins font-medium">Nairobi, KE</h1>
+                    <h1 className="text-black dark:text-paleWhite text-lg font-poppins font-medium">
+                        {geocode.length === 0 ? "Nairobi" : geocode[3]},
+                        {geocode.length === 0 ? "KE" : geocode[2]}</h1>
                 </div>
                 <div className="flex flex-row gap-x-2 items-center">
                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -55,8 +62,8 @@ function Widget({ weather }) {
                 </div>
             </div>
             <div className="flex flex-row gap-x-3 items-center">
-                <p className="text-cardDark dark:text-smoothGray font-poppins font-medium text-[12px]">Latitude: -15.213413</p>
-                <p className="text-cardDark dark:text-smoothGray font-poppins font-medium text-[12px]">Longitude: -1.34523</p>
+                <p className="text-cardDark dark:text-smoothGray font-poppins font-medium text-[12px]">Latitude: {geocode.length === 0 ? "-43.283291" : geocode[0]}</p>
+                <p className="text-cardDark dark:text-smoothGray font-poppins font-medium text-[12px]">Longitude:  {geocode.length === 0 ? "-31.13414" : geocode[1]}</p>
             </div>
             <div className="flex flex-row justify-around mt-4">
                 <p className="text-black dark:text-paleWhite text-[14px] font-poppins font-medium">Sunny</p>
@@ -192,7 +199,11 @@ function Widget({ weather }) {
                 <span className="mt-1 px-6 py-[6px] bg-lGreen text-tlGreen dark:bg-dGreen/60 dark:text-tdGreen text-sm font-semibold rounded-full">All good</span>
             </div>
             <div className="flex justify-center">
-                <button className="mt-1 w-5/6 py-2 bg-lRed/60 text-tlRed dark:bg-dRed dark:text-tdRed dark:hover:bg-lRed hover:bg-dRed text-center rounded-full text-sm font-semibold">Delete</button>
+                <button
+                    onClick={() => setGeocode([])}
+                    className="mt-1 w-5/6 py-2 bg-lRed/60 text-tlRed dark:bg-dRed dark:text-tdRed dark:hover:bg-lRed hover:bg-dRed text-center rounded-full text-sm font-semibold">
+                    Delete
+                </button>
             </div>
         </div>
     )

@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchWeatherApi } from 'openmeteo';
 
 function InputForm(props) {
-    const [geocode, setGeocode] = useState([]);
-    const API_KEY = "ffGkmWQkRDMw4SQHS0miF4OXIiTMoukz";
+    const [localgeo, setLocalgeo] = useState(false);
 
     const fetchCityLocation = (e) => {
         e.preventDefault();
@@ -12,7 +11,7 @@ function InputForm(props) {
             .then(response => response.json())
             .then(location => {
                 console.log(location);
-                setGeocode([
+                props.setGeocode([
                     location.results[0].longitude,
                     location.results[0].latitude,
                     location.results[0].country_code,
@@ -24,7 +23,7 @@ function InputForm(props) {
 
     const fetchWeatherFunc = async () => {
 
-        const [longi, lat, country_code, name] = geocode;
+        const [longi, lat, country_code, name] = props.geocode;
         const params = {
             "latitude": lat,
             "longitude": longi,
@@ -90,11 +89,11 @@ function InputForm(props) {
 
     useEffect(() => {
 
-        if (geocode.length > 0) {
+        if (props.geocode.length > 0) {
             fetchWeatherFunc();
 
         }
-    }, [geocode])
+    }, [props.geocode])
 
     return (
         <form onSubmit={fetchCityLocation}
